@@ -1,0 +1,1 @@
+export {default as BackendPaginatorPlugin} from './paginator'

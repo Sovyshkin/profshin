@@ -1,0 +1,4 @@
+PassengerFlask /home/c/ciaanman/.local/bin/flask
+PassengerAppRoot /home/c/ciaanman/ciaanman.beget.tech/public_html
+PassengerAppType flask
+PassengerStartupFile app.py

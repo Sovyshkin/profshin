@@ -1,0 +1,170 @@
+@import "./variables.styl"
+.w-full
+  width 100% !important
+
+.h-full
+  height 100% !important
+
+button.outlined
+  border-radius 4px !important
+  border 1px $primary solid
+  padding 4px 12px
+
+textarea
+  border-radius 10px
+  border 1px $primary solid
+  padding 10px
+  font-size 18px
+
+textarea::placeholder
+  font-size 20px
+  font-weight 400
+
+.h-100vh
+  height 100vh
+
+.error
+  margin-top 3px
+  color #be4343
+  font-weight 500
+
+a
+  text-decoration none !important
+  color inherit
+
+.flex
+  display flex
+
+.flex-column
+  flex-direction column
+
+.flex-column-reverse
+  flex-direction column-reverse
+
+.grid
+  display grid
+
+.link
+  text-decoration none
+  color black
+
+.chip
+  position absolute
+  left 100%
+  top 0
+  transform translate(-20%,-100%)
+  background black
+  color white
+  border-radius 50%
+  padding 4px 6px
+  min-width 12px
+  display flex
+  justify-content center
+  align-items center
+
+
+.black-button
+  background black
+  border-radius 4px
+  color white
+  padding 8px 16px
+  cursor pointer
+  max-height 24px
+  font-size 14px
+  @media(min-width 720px)
+    border-radius 10px
+    padding 10px 20px
+    max-height 40px
+
+.gray-background
+  background $gray
+
+.relative
+  position relative
+
+.text-align-start
+  text-align start
+
+.text-align-center
+  text-align center
+
+.primary-color
+  color $primary
+
+.white-color
+  color white
+
+
+.w-max-full
+  max-width 100%
+
+.pointer
+  cursor pointer
+
+for val in 1..100
+  {'.w-' + val}
+    width (val)% !important
+
+for val in 1..100
+  {'.w-max-' + val}
+    max-width (val)% !important
+
+for val in 1...10
+  {'.underline-'+val}
+    border-bottom (val)px $primary solid
+
+for val in 'center' 'end' 'start' 'space-between' 'space-around'
+  {'.justify-' + val}
+    justify-content unquote(val) !important
+  {'.align-' + val}
+    align-items unquote(val) !important
+
+for val in '10' '12' '14' '16' '18' '20' '22' '25' '30' '32' '64' '72'
+  {'.f-' + val}
+    font-size unquote(val + 'px') !important
+
+for val in 1 .. 9
+  {'.gap-' + val}
+    gap (2 ** val)px !important
+  {'.mt-' + val}
+    margin-top (2 ** val)px !important
+  {'.ml-' + val}
+    margin-left (2 ** val)px !important
+  {'.mr-' + val}
+    margin-right (2 ** val)px !important
+  {'.mb-' + val}
+    margin-bottom (2 ** val)px !important
+  {'.pt-' + val}
+    padding-top (2 ** val)px !important
+  {'.pl-' + val}
+    padding-left (2 ** val)px !important
+  {'.pr-' + val}
+    padding-right (2 ** val)px !important
+  {'.pb-' + val}
+    padding-bottom (2 ** val)px !important
+  {'.py-' + val}
+    padding-top (2 ** val)px !important
+    padding-bottom  (2 ** val)px !important
+  {'.px-' + val}
+    padding-left (2 ** val)px !important
+    padding-right  (2 ** val)px !important
+  {'.mx-' + val}
+    margin-right (2 ** val)px !important
+    margin-left (2 ** val)px !important
+  {'.my-' + val}
+    margin-bottom (2 ** val)px !important
+    margin-top (2 ** val)px !important
+  {'.p-' + val}
+    padding-left (2 ** val)px !important
+    padding-right  (2 ** val)px !important
+    padding-top (2 ** val)px !important
+    padding-bottom   (2 ** val)px !important
+  {'.m-' + val}
+    margin-right (2 ** val)px !important
+    margin-left (2 ** val)px !important
+    margin-top (2 ** val)px !important
+    margin-bottom  (2 ** val)px !important
+
+for val in '100' '200' '300' '400' '500' '600' '700' '800' '900'
+  {'.fw-' + val}
+    font-weight unquote(val) !important
