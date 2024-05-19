@@ -42,11 +42,11 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=["start"])
 def start(message):
-    if str(message.chat.id) == '978664527': 
-        bot.send_message(978664527, "Привет, я готов принимать сообщения")
+    if str(message.chat.id) == '1613828142': 
+        bot.send_message(1613828142, "Привет, я готов принимать сообщения")
 @bot.message_handler(commands=["ticket"])
 def start(message):
-    if str(message.chat.id) == '978664527':
+    if str(message.chat.id) == '1613828142':
         text = str(message.text).split()
         num_ticket = int(text[2][:-1])
         msg = ' '.join(text[3:])
@@ -56,7 +56,7 @@ def start(message):
             chat_msg = Chat(message=msg, ticket=num_ticket, time=time, ans=True)
             db.session.add(chat_msg)
             db.session.commit()
-        bot.send_message(978664527, 'Отправлено...')
+        bot.send_message(1613828142, 'Отправлено...')
         
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
@@ -464,7 +464,7 @@ def send_message() -> json:
             result['status'] = '200'
             msg.ticket = msg.id
             db.session.commit()
-        bot.send_message(978664527, f'Номер тикета: {msg.ticket}. Сообщение: {message}')
+        bot.send_message(1613828142, f'Номер тикета: {msg.ticket}. Сообщение: {message}')
 
     return jsonify(result)
 
