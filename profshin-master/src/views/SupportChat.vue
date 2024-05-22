@@ -20,7 +20,7 @@ export default {
           params: {
             message: this.message,
             ticket: this.getCookieValue("ticket") || "False",
-            time: dayjs().format("D MMM, H:mm"),
+            time: dayjs().tz("Europe/Moscow").format("D MMM, H:mm (мск)"),
           },
         });
         this.status = response.data.status;
