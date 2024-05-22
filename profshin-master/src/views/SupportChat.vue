@@ -27,10 +27,10 @@ export default {
         this.ticket = response.data.ticket;
         if (this.status == "200") {
           this.message = "";
-          this.load_info();
           if (this.ticket) {
             document.cookie = `ticket=${this.ticket}; max-age=${45 * 86400}`;
           }
+          this.load_info();
         }
       }
     },
@@ -159,7 +159,7 @@ export default {
   padding: 10px 20px;
   max-height: 50px;
   min-height: 50px;
-  min-width: 90%;
+  min-width: 100px;
   width: 90%;
 }
 
