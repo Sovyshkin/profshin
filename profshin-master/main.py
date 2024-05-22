@@ -156,38 +156,38 @@ bot_thread = threading.Thread(target=start_bot)
 bot_thread.start()
 
 
-def start_bot_two():
+# def start_bot_two():
 
-    TOKEN = "7075413939:AAEJupsb3LfsJuCcpSku9l7ZNf5iXfL74TM"
-    bot = telebot.TeleBot(TOKEN)
+#     TOKEN = "7075413939:AAE8r5VEsxMWyhhhOpwHwSCYPQ9_DsuyjIk"
+#     bot = telebot.TeleBot(TOKEN)
 
-    @bot.message_handler(commands=["start"])
-    def start(message):
-        if str(message.chat.id) == '1613828142': 
-            bot.send_message(1613828142, "Привет, я готов принимать сообщения")
-    @bot.message_handler(commands=["ticket"])
-    def start(message):
-        if str(message.chat.id) == '1613828142':
-            text = str(message.text).split()
-            num_ticket = int(text[2][:-1])
-            msg = ' '.join(text[3:])
-            current_datetime = datetime.now()
-            time = current_datetime.strftime("%d %B, %H:%M")
-            with app.app_context():
-                chat_msg = Chat(message=msg, ticket=num_ticket, time=time, ans=True)
-                db.session.add(chat_msg)
-                db.session.commit()
-            bot.send_message(1613828142, 'Отправлено...')
+#     @bot.message_handler(commands=["start"])
+#     def start(message):
+#         if str(message.chat.id) == '1613828142': 
+#             bot.send_message(1613828142, "Привет, я готов принимать сообщения")
+#     @bot.message_handler(commands=["ticket"])
+#     def start(message):
+#         if str(message.chat.id) == '1613828142':
+#             text = str(message.text).split()
+#             num_ticket = int(text[2][:-1])
+#             msg = ' '.join(text[3:])
+#             current_datetime = datetime.now()
+#             time = current_datetime.strftime("%d %B, %H:%M")
+#             with app.app_context():
+#                 chat_msg = Chat(message=msg, ticket=num_ticket, time=time, ans=True)
+#                 db.session.add(chat_msg)
+#                 db.session.commit()
+#             bot.send_message(1613828142, 'Отправлено...')
             
-    @bot.message_handler(func=lambda message: True)
-    def echo_all(message):
-        bot.reply_to(message, message.text)
+#     @bot.message_handler(func=lambda message: True)
+#     def echo_all(message):
+#         bot.reply_to(message, message.text)
 
 
-    bot.infinity_polling(timeout=50, long_polling_timeout=50)
+#     bot.infinity_polling(timeout=50, long_polling_timeout=50)
 
-bot_thread_two = threading.Thread(target=start_bot_two)
-bot_thread_two.start()
+# bot_thread_two = threading.Thread(target=start_bot_two)
+# bot_thread_two.start()
 
 
 
