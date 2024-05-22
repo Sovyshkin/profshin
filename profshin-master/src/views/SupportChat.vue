@@ -62,33 +62,35 @@ export default {
   async mounted() {
     await this.load_info();
   },
+  created() {
+    this.load_info();
+    setInterval(this.load_info, 10000); // Обновление каждые 5 секунд
+  },
 };
 </script>
 
 <template>
-  <div class="wrapper">
-    <div class="chat">
-      <div class="wrap_title"></div>
-      <div class="cont">
-        <div class="wrap_msg" :class="{ ans: msg.ans }" v-for="msg in messages">
-          <div class="message">
-            <span class="text">{{ msg.message }}</span>
-            <div class="time font-for-count">{{ msg.time }}</div>
-          </div>
+  <div class="chat">
+    <div class="wrap_title">Чат Поддержки</div>
+    <div class="cont">
+      <div class="wrap_msg" :class="{ ans: msg.ans }" v-for="msg in messages">
+        <div class="message">
+          <span class="text">{{ msg.message }}</span>
+          <div class="time font-for-count">{{ msg.time }}</div>
         </div>
       </div>
-      <form @submit.prevent="setMessage" class="wrap_send">
-        <textarea
-          v-model="message"
-          cols="30"
-          rows="10"
-          placeholder="Введите сообщение..."
-        ></textarea>
-        <button type="submit">
-          <img src="../assets/send.png" alt="" />
-        </button>
-      </form>
     </div>
+    <form @submit.prevent="setMessage" class="wrap_send">
+      <textarea
+        v-model="message"
+        cols="30"
+        rows="10"
+        placeholder="Введите сообщение..."
+      ></textarea>
+      <button type="submit">
+        <img src="../assets/send.png" alt="" />
+      </button>
+    </form>
   </div>
 </template>
 
@@ -97,8 +99,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 400px;
   width: 100%;
   margin: 0 auto;
+  background-color: #fff;
+  border-radius: 15px;
 }
 
 .ans {
@@ -123,14 +128,26 @@ export default {
   justify-content: end;
 }
 
+.wrap_title {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 5px 0;
+  border-bottom: 1px solid black;
+}
+
 .chat {
+  position: absolute;
+  right: 100px;
+  bottom: 10%;
   display: flex;
   flex-direction: column;
-  width: 80%;
   min-height: 60vh;
-  margin-top: 15px;
   border: 1px solid black;
   border-radius: 15px;
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  z-index: 11;
 }
 
 .wrap_send {
@@ -163,6 +180,10 @@ export default {
   width: 90%;
 }
 
+.wrap_send textarea::placeholder {
+  font-size: 1rem;
+}
+
 .message {
   position: relative;
   border: 1px solid black;
@@ -183,5 +204,24 @@ export default {
 
 .text {
   word-wrap: break-word;
+}
+
+@media (max-width: 540px) {
+  .cont {
+    min-height: 52vh;
+  }
+
+  .chat {
+    right: 10px;
+    bottom: 160px;
+    min-width: none;
+    width: 95%;
+  }
+}
+
+@media (max-height: 680px) {
+  .cont {
+    min-height: 56vh;
+  }
 }
 </style>

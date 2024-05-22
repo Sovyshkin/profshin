@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <div class="circle" @click="this.$router.push({ name: 'chat' })">
+  <div class="circle">
     <img src="../assets/support.png" alt="" />
   </div>
 </template>

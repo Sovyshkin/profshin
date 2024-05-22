@@ -28,7 +28,8 @@
     <div class="dev">Сайт в разработке</div>
     <router-view style="flex-grow: 1" />
     <Footer />
-    <SupportButton />
+    <SupportButton @click="openChat" />
+    <SupportChat v-if="chat" />
     <CartButton />
     <WipOverlay />
   </div>
@@ -41,11 +42,12 @@
 <script setup>
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { init } from "@/utils";
 import WipOverlay from "@/components/WipOverlay";
 import CartButton from "@/components/CartButton";
 import SupportButton from "@/components/SupportButton";
+import SupportChat from "@/views/SupportChat";
 import router from "@/router";
 import { useCatalogStore, useUiStore } from "@/store";
 import { GoodTypes } from "@/enums/good-types";
@@ -92,6 +94,11 @@ const breadcrumbs = computed(() => {
   if (crumbs.length > 1) return crumbs;
   return null;
 });
+
+const chat = ref(false);
+const openChat = () => {
+  chat.value = !chat.value;
+};
 </script>
 
 <style lang="stylus" scoped>
