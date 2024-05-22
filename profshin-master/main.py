@@ -516,9 +516,9 @@ def send_message() -> json:
             msg.ticket = msg.id
             db.session.commit()
 
-        TOKEN = "7075413939:AAEJupsb3LfsJuCcpSku9l7ZNf5iXfL74TM"
-        bot = telebot.TeleBot(TOKEN)
-        bot.send_message(1613828142, f'Номер тикета: {msg.ticket}. Сообщение: {message}')
+        # TOKEN = "7075413939:AAEJupsb3LfsJuCcpSku9l7ZNf5iXfL74TM"
+        # bot = telebot.TeleBot(TOKEN)
+        # bot.send_message(1613828142, f'Номер тикета: {msg.ticket}. Сообщение: {message}')
 
     return jsonify(result)
 
