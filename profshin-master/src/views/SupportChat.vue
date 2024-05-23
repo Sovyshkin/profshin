@@ -2,6 +2,11 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import "dayjs/locale/ru";
+import utc from "dayjs/plugin/utc"; // Необходимо для работы с UTC
+import timezone from "dayjs/plugin/timezone"; // Необходимо для работы с часовыми поясами
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export default {
   components: {},
